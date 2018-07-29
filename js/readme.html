@@ -1,0 +1,325 @@
+<html>
+<head>
+<title>PopUp Calendar readme file</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style type="text/css">
+<!--
+.bodytext {  font-family: Verdana, Arial, sans-serif; font-size: 10pt}
+.textfield {  font-family: Verdana, Arial, sans-serif; font-size: 10pt}
+.header {  font-family: Verdana, Arial, sans-serif; font-size: 10pt; font-weight: bold}
+.footnote {  font-family: "MS Sans Serif", sans-serif; font-size: 10pt}
+.code {  font-family: "Courier New", Courier, mono; font-size: 10pt; font-weight: bold}
+a:hover {  color: #FF0000; text-decoration: underline overline}
+a:link {  color: #0000FF; text-decoration: underline}
+a:visited {  color: #0000FF; text-decoration: underline}
+.highlight {  color: #FF0000; font-family: Verdana, Arial, sans-serif; font-size: 10pt}
+-->
+</style>
+<script language="JavaScript" src="pupdate.js"></script>
+</head>
+
+<body bgcolor="#FFFFFF">
+<table width="760" border="1" cellspacing="1" cellpadding="4" bordercolorlight="#000000" bordercolordark="#000000" align="center">
+ <tr> 
+	<td> 
+	 <p class="header">Introduction</p>
+	 <p class="bodytext">PopUp Calendar has been designed as a part of our data 
+		software (DataShell Software). It provides a user friendly and flexible 
+		way to choose dates and insert them in form fields. You need only one 
+		instance of PopUp Calendar on your page to attach it to an unlimited amount 
+		of form fields.<br>
+		As this calendar has been made first as an interactive date selector for 
+		online orders, it differs of decorative calendars: it displays only 13 
+		months starting the current one and including the same month of the next 
+		year. This range is enough for dates of orders/enrollments (unless you 
+		collect orders for 2 years in advance or from the past :-)<br>
+		To see if it can be of any use for you please check any form field below. 
+		Have a nice one!</p>
+	 <p class="header">Installation and Setup</p>
+	 <ol class="bodytext">
+		<li>Place the script file <span class="code">pupdate.js</span> in a directory 
+		 on you server.</li>
+		<li>Open the page where you want to use the PopUp Calendar and insert 
+		 the following instruction in the header section of the page (before the 
+		 closing &lt;/head&gt; tag):<br>
+		 <span class="code">&lt;script language=&quot;JavaScript&quot; src=&quot;[path_to_file/]pupdate.js&quot;&gt;&lt;/script&gt;</span><br>
+		 (If the page and the script file are located in the the same directory, 
+		 your instruction should simply be: <span class="code">&lt;script language=&quot;JavaScript&quot; 
+		 src=&quot;pupdate.js&quot;&gt;&lt;/script&gt;</span>)<br>
+		</li>
+		<li>Open the file <span class="code">pupdate.txt</span>, select all text 
+		 inside, copy it and past at the bottom of your page (before the closing 
+		 &lt;/body&gt; tag).<br>
+		</li>
+		<li>Now you have to attach the calendar to form elements on your page.<br>
+		 The syntax to run the calendar is: <span class="code">on[Event]=&quot;getCalendarFor(target[,pattern])&quot;</span><br>
+		 <span class="code">target</span> is the target form field where the chosen 
+		 date has to be inserted<br>
+		 <span class="code">pattern</span> is an optional date pattern there you 
+		 can limit user's choice by dates and days of week. (To know more about 
+		 the pattern syntax please see the topic &quot;Date Pattern&quot;).<br>
+		 Here there are several code samples (form name is <span class="code">sample</span>):</li>
+	 </ol>
+	 <form name="sample">
+		<p><span class="header">1. Button</span><br>
+		 <span class="code">&lt;input type=&quot;button&quot; value=&quot;Choose 
+		 one...&quot; onClick=&quot;getCalendarFor(document.sample.choice2)&quot;&gt;</span><br>
+		 <span class="bodytext">Starting date:</span> 
+		 <input type="text" name="choice2" size="16" maxlength="32" onFocus="document.sample.button2.focus()" class="textfield">
+		 <input type="button" name="button2" value="Choose one..." onClick="getCalendarFor(document.sample.choice2)" class="bodytext">
+		</p>
+		<p>&nbsp;</p>
+		<p> <span class="header">2. Text field</span><br>
+		 <span class="bodytext"><font color="#003366">Option 1:</font> User can 
+		 insert date manually <i>or</i> via the popup calendar</span>:<br>
+		 <span class="code">&lt;input type=&quot;text&quot; name=&quot;choice1_1&quot; 
+		 onFocus=&quot;getCalendarFor(this)&quot;&gt;</span> <br>
+		 <span class="bodytext">Starting date: </span> 
+		 <input type="text" name="choice1_1" size="16" maxlength="32" onFocus="getCalendarFor(this)" class="textfield">
+		 <br>
+		 <br>
+		 <span class="bodytext"><font color="#003366">Option 2:</font> Users can 
+		 insert date <i>only</i> via the popup calendar:</span><br>
+		 <span class="code">&lt;input type=&quot;text&quot; name=&quot;choice1_2&quot; 
+		 onFocus=&quot;getCalendarFor(this); this.blur()&quot;&gt;</span><br>
+		 <span class="bodytext">Starting date:</span> 
+		 <input type="text" name="choice1_2" size="16" maxlength="32" onFocus="getCalendarFor(this); this.blur()" class="textfield">
+		 <br>
+		 <span class="highlight">Because of some defaults in Netscape's event 
+		 model the location where the calendar appears may differ of the click 
+		 coordinates.</span></p>
+		<p>&nbsp;</p>
+		<p><span class="header">3. Link</span><br>
+		 <span class="code">&lt;a href=&quot;javascript://&quot; onClick=&quot;getCalendarFor(document.sample.choice3)&quot;&gt;Choose 
+		 one...&lt;/a&gt;</span><br>
+		 <span class="bodytext">Starting date:</span> 
+		 <input type="text" name="choice3" size="16" maxlength="32" onFocus="document.sample.button2.focus()" class="textfield">
+		 <a href="javascript://" onClick="getCalendarFor(document.sample.choice3)"><span class="bodytext">Choose 
+		 one...</span></a><br>
+		 <font color="#FF0000" class="textfield">Please note a special link syntax 
+		 used to compensate some defaults in Explorer's &amp; Netscape's behavior.</font></p>
+		<p class="bodytext">&nbsp;</p>
+		<p class="bodytext"><span class="header">4. Image</span><br>
+		 <span class="code">&lt;img src=&quot;arrow.gif&quot; onMouseUp=&quot;getCalendarFor(document.sample.choice4)&quot;&gt;</span><br>
+		 Starting date: 
+		 <input type="text" name="choice4" size="16" maxlength="32" class="textfield">
+		 <img src="arrow.gif" width="16" height="16" vspace="0" hspace="2" border="0" onMouseUp="getCalendarFor(document.sample.choice4)"></p>
+	 </form>
+	 <p class="header">&nbsp; </p>
+	 </td>
+ </tr>
+ <tr>
+	<td>
+	 <p class="header">Additional information</p>
+	 <p class="bodytext"><span class="header">Date Pattern</span><br>
+		You can limit user's choice. For this you have to use the 2nd argument 
+		in getCalendarFor() function.<br>
+		This argument is a text string and it has the following format:<br>
+		<span class="code">mode:range:key</span></p>
+	 <table border="1" cellspacing="0" cellpadding="2">
+		<tr> 
+		 <td bgcolor="#CCCCCC"><font face="MS Sans Serif, sans-serif" size="1">mode</font></td>
+		 <td>&nbsp;</td>
+		</tr>
+		<tr> 
+		 <td><font face="MS Sans Serif, sans-serif" size="1">[]</font></td>
+		 <td><font face="MS Sans Serif, sans-serif" size="1">limit choice by the 
+			following range</font></td>
+		</tr>
+		<tr> 
+		 <td><font face="MS Sans Serif, sans-serif" size="1">[^]</font></td>
+		 <td><font face="MS Sans Serif, sans-serif" size="1">lock the following 
+			range (user cannot choose these dates)</font></td>
+		</tr>
+		<tr> 
+		 <td bgcolor="#CCCCCC"><font face="MS Sans Serif, sans-serif" size="1">range</font></td>
+		 <td>&nbsp;</td>
+		</tr>
+		<tr> 
+		 <td><font face="MS Sans Serif, sans-serif" size="1">a number with key 
+			d[ate]</font></td>
+		 <td><font face="MS Sans Serif, sans-serif" size="1">this particular day 
+			of the month</font></td>
+		</tr>
+		<tr> 
+		 <td><font face="MS Sans Serif, sans-serif" size="1">a number with other 
+			keys</font></td>
+		 <td><font face="MS Sans Serif, sans-serif" size="1">this day of the week 
+			in the standard JavaScript numeration: 0 - Sunday ... 6 - Saturday</font></td>
+		</tr>
+		<tr> 
+		 <td bgcolor="#CCCCCC"><font face="MS Sans Serif, sans-serif" size="1">key<br>
+			(you can use the whole words or first letters)</font></td>
+		 <td>&nbsp;</td>
+		</tr>
+		<tr> 
+		 <td><font face="MS Sans Serif, sans-serif" size="1">d[ate]</font></td>
+		 <td><font face="MS Sans Serif, sans-serif" size="1">Pattern applies for 
+			a day of the month</font></td>
+		</tr>
+		<tr> 
+		 <td><font face="MS Sans Serif, sans-serif" size="1">o[dd]</font></td>
+		 <td><font face="MS Sans Serif, sans-serif" size="1">Pattern applies for 
+			1st and 3rd days of the week</font></td>
+		</tr>
+		<tr> 
+		 <td><font face="MS Sans Serif, sans-serif" size="1">e[ven]</font></td>
+		 <td><font face="MS Sans Serif, sans-serif" size="1">Pattern applies for 
+			2nd and 4th days of the week</font></td>
+		</tr>
+		<tr> 
+		 <td><font face="MS Sans Serif, sans-serif" size="1">a[ll]</font></td>
+		 <td><font face="MS Sans Serif, sans-serif" size="1">Pattern applies for 
+			all days of the week</font></td>
+		</tr>
+	 </table>
+   <form name="sample2">
+	 <p class="bodytext">Examples:<br>
+		Exclude 13th of each month: <span class="code">getCalendarFor(field,'[^]:13:d')</span><br>
+		Exclude all Fridays of each month: <span class="code">getCalendarFor(field,'[^]:5:a')</span><br>
+		Limit user's choice by 1st and 3rd Monday of each month: <span class="code">getCalendarFor(field,'[]:1:o')</span><br>
+		Please choose 1st or 3rd Monday of any month: 
+		<input type="button" name="Button" value="        " onClick="getCalendarFor(this,'[]:1:o')" class="bodytext">
+	 </p>
+   </form>
+	 <p class="bodytext"><span class="header">Date Format</span><br>
+		By default the date format is m/d/Y (like 08/23/2000)<br>
+		You can choose any desired format by editing ppcDF variable in the script. 
+		Open pupdate.js and find this variable in the Settings section. The keys 
+		are:<br>
+	 </p>
+	 <table border="1" cellspacing="0" cellpadding="2">
+		<tr> 
+		 <td><font face="MS Sans Serif, sans-serif" size="1">m</font></td>
+		 <td><font face="MS Sans Serif, sans-serif" size="1">Month number (01 
+			- January, etc.)</font></td>
+		</tr>
+		<tr> 
+		 <td><font face="MS Sans Serif, sans-serif" size="1">M</font></td>
+		 <td><font face="MS Sans Serif, sans-serif" size="1">Month name</font></td>
+		</tr>
+		<tr> 
+		 <td><font face="MS Sans Serif, sans-serif" size="1">d</font></td>
+		 <td><font face="MS Sans Serif, sans-serif" size="1">Date</font></td>
+		</tr>
+		<tr> 
+		 <td><font face="MS Sans Serif, sans-serif" size="1">y</font></td>
+		 <td><font face="MS Sans Serif, sans-serif" size="1">Last two digits of 
+			the year</font></td>
+		</tr>
+		<tr> 
+		 <td><font face="MS Sans Serif, sans-serif" size="1">Y</font></td>
+		 <td><font face="MS Sans Serif, sans-serif" size="1">All four digits of 
+			the year</font></td>
+		</tr>
+		<tr> 
+		 <td><font face="MS Sans Serif, sans-serif" size="1">W</font></td>
+		 <td><font face="MS Sans Serif, sans-serif" size="1">Name of the day of 
+			the week (Monday, etc.)</font></td>
+		</tr>
+		<tr> 
+		 <td colspan="2"> 
+			<p><font face="MS Sans Serif, sans-serif" size="1">Besides these keys 
+			 you can use any dividers and additional text that will be inserted 
+			 &quot;as it is&quot;.<br>
+			 Important: you cannot directly use letters reserved for keys (m,M,d,y,Y,W) 
+			 as they will be parsed to date components. Instead you have to use 
+			 the corresponding escape sequences:</font></p>
+		 </td>
+		</tr>
+		<tr> 
+		 <td><font face="MS Sans Serif, sans-serif" size="1">d</font></td>
+		 <td><font face="MS Sans Serif, sans-serif" size="1">%64</font></td>
+		</tr>
+		<tr> 
+		 <td><font face="MS Sans Serif, sans-serif" size="1">m</font></td>
+		 <td><font face="MS Sans Serif, sans-serif" size="1">%6D</font></td>
+		</tr>
+		<tr> 
+		 <td><font face="MS Sans Serif, sans-serif" size="1">M</font></td>
+		 <td><font face="MS Sans Serif, sans-serif" size="1">%4D</font></td>
+		</tr>
+		<tr> 
+		 <td><font face="MS Sans Serif, sans-serif" size="1">W</font></td>
+		 <td><font face="MS Sans Serif, sans-serif" size="1">%57</font></td>
+		</tr>
+		<tr> 
+		 <td><font face="MS Sans Serif, sans-serif" size="1">y</font></td>
+		 <td><font face="MS Sans Serif, sans-serif" size="1">%79</font></td>
+		</tr>
+		<tr> 
+		 <td><font face="MS Sans Serif, sans-serif" size="1">Y</font></td>
+		 <td><font face="MS Sans Serif, sans-serif" size="1">%59</font></td>
+		</tr>
+		<tr nowrap> 
+		 <td colspan="2"><font face="MS Sans Serif, sans-serif" size="1">Thus 
+			instead of &quot;Month M&quot; you have to type &quot;%4Donth M&quot; 
+			</font></td>
+		</tr>
+	 </table>
+	 <p><span class="bodytext">Examples:<br>
+		m/d/y = 10/02/00<br>
+		M d, Y = October 2, 2000<br>
+		W M d, Y = Monday October 2, 200</span>0</p>
+	 <p class="bodytext"><span class="header">Localization</span><br>
+		Default language is English. To use any other language open pupdate.js 
+		and edit text variables in the Settings section.</p>
+	 <p class="bodytext"><span class="header">Netscape Navigator specific issues</span><br>
+		PopUp Calendar is as compatible as it possible with both main browsers. 
+		Nevertheless we could not completely eliminate the two main defaults in 
+		Netscape DHTML models:<br>
+		1) &quot;Incontinence of layers&quot;. On resize the content of layers 
+		falls out at the bottom of the page. The reload method cannot be used 
+		here as it resets the form. So we have used a tricky method that works 
+		most of the time but fails if the reviewing page is the first during the 
+		current session.<br>
+		[Note] Netscape 6 (at least pre-releases) seems to be stronger.<br>
+		2) &quot;Super Z of form element&quot;. All form elements (fields, buttons, 
+		etc.) in Netscape are placed in some kind of &quot;super layer&quot; and 
+		cannot be overlapped but other layers, no matter what z-index do they 
+		have. It may produce problems on a page with a lot of form elements: the 
+		calendar may be covered by them and not easy to use.<br>
+		If it's your case the only solution is to use ppcUC variable. Open pupdate.js 
+		and find this variable in the Settings section. The default value is false. 
+		If set it to true, the calendar will appear on the same place, indicated 
+		by variables ppcUX (x of the left corner) and ppcUY (y of the left corner). 
+		Select coordinates of a free place on your page and use them. Another 
+		solution is not care of Netscape's users...<br>
+		[Note] This default is the same in Netscape 6 (at least pre-releases).</p>
+	 <p class="bodytext"><span class="header">Contact us</span><br>
+		We do not provide any kind of official support for PopUp Calendar as a 
+		separate product. We do not hold any responsibility that may arise of 
+		its use.<br>
+		Nevertheless you can contact Sev Kotchnev with your opinions and suggestions 
+		at: <a href="mailto:webmaster@personal-connections.com">webmaster@personal-connections.com</a> 
+	 </p>
+	</td>
+ </tr>
+</table>
+<!-- PopUp Calendar BEGIN -->
+<script language="JavaScript">
+if (document.all) {
+ document.writeln("<div id=\"PopUpCalendar\" style=\"position:absolute; left:0px; top:0px; z-index:7; width:200px; height:77px; overflow: visible; visibility: hidden; background-color: #FFFFFF; border: 1px none #000000\" onMouseOver=\"if(ppcTI){clearTimeout(ppcTI);ppcTI=false;}\" onMouseOut=\"ppcTI=setTimeout(\'hideCalendar()\',500)\">");
+ document.writeln("<div id=\"monthSelector\" style=\"position:absolute; left:0px; top:0px; z-index:9; width:181px; height:27px; overflow: visible; visibility:inherit\">");}
+else if (document.layers) {
+ document.writeln("<layer id=\"PopUpCalendar\" pagex=\"0\" pagey=\"0\" width=\"200\" height=\"200\" z-index=\"100\" visibility=\"hide\" bgcolor=\"#FFFFFF\" onMouseOver=\"if(ppcTI){clearTimeout(ppcTI);ppcTI=false;}\" onMouseOut=\"ppcTI=setTimeout('hideCalendar()',500)\">");
+ document.writeln("<layer id=\"monthSelector\" left=\"0\" top=\"0\" width=\"181\" height=\"27\" z-index=\"9\" visibility=\"inherit\">");}
+else {
+ document.writeln("<p><font color=\"#FF0000\"><b>Error ! The current browser is either too old or too modern (usind DOM document structure).</b></font></p>");}
+</script>
+<noscript><p><font color="#FF0000"><b>JavaScript is not activated !</b></font></p></noscript>
+<table border="1" cellspacing="1" cellpadding="2" width="200" bordercolorlight="#000000" bordercolordark="#000000" vspace="0" hspace="0"><form name="ppcMonthList"><tr><td align="center" bgcolor="#CCCCCC"><a href="javascript:moveMonth('Back')" onMouseOver="window.status=' ';return true;"><font face="Arial, Helvetica, sans-serif" size="2" color="#000000"><b>&lt;&nbsp;</b></font></a><font face="MS Sans Serif, sans-serif" size="1"> 
+<select name="sItem" onMouseOut="if(ppcIE){window.event.cancelBubble = true;}" onChange="switchMonth(this.options[this.selectedIndex].value)" style="font-family: 'MS Sans Serif', sans-serif; font-size: 9pt"><option value="0" selected>2000 &#149; January</option><option value="1">2000 &#149; February</option><option value="2">2000 &#149; March</option><option value="3">2000 &#149; April</option><option value="4">2000 &#149; May</option><option value="5">2000 &#149; June</option><option value="6">2000 &#149; July</option><option value="7">2000 &#149; August</option><option value="8">2000 &#149; September</option><option value="9">2000 &#149; October</option><option value="10">2000 &#149; November</option><option value="11">2000 &#149; December</option><option value="0">2001 &#149; January</option></select></font><a href="javascript:moveMonth('Forward')" onMouseOver="window.status=' ';return true;"><font face="Arial, Helvetica, sans-serif" size="2" color="#000000"><b>&nbsp;&gt;</b></font></a></td></tr></form></table>
+<table border="1" cellspacing="1" cellpadding="2" bordercolorlight="#000000" bordercolordark="#000000" width="200" vspace="0" hspace="0"><tr align="center" bgcolor="#CCCCCC"><td width="20" bgcolor="#FFFFCC"><b><font face="MS Sans Serif, sans-serif" size="1">Su</font></b></td><td width="20"><b><font face="MS Sans Serif, sans-serif" size="1">Mo</font></b></td><td width="20"><b><font face="MS Sans Serif, sans-serif" size="1">Tu</font></b></td><td width="20"><b><font face="MS Sans Serif, sans-serif" size="1">We</font></b></td><td width="20"><b><font face="MS Sans Serif, sans-serif" size="1">Th</font></b></td><td width="20"><b><font face="MS Sans Serif, sans-serif" size="1">Fr</font></b></td><td width="20" bgcolor="#FFFFCC"><b><font face="MS Sans Serif, sans-serif" size="1">Sa</font></b></td></tr></table>
+<script language="JavaScript">
+if (document.all) {
+ document.writeln("</div>");
+ document.writeln("<div id=\"monthDays\" style=\"position:absolute; left:0px; top:52px; z-index:8; width:200px; height:17px; overflow: visible; visibility:inherit; background-color: #FFFFFF; border: 1px none #000000\">&nbsp;</div></div>");}
+else if (document.layers) {
+ document.writeln("</layer>");
+ document.writeln("<layer id=\"monthDays\" left=\"0\" top=\"52\" width=\"200\" height=\"17\" z-index=\"8\" bgcolor=\"#FFFFFF\" visibility=\"inherit\">&nbsp;</layer></layer>");}
+else {/*NOP*/}
+</script>
+<!-- PopUp Calendar END -->
+</body>
+</html>

@@ -1,0 +1,283 @@
+body {    margin: 0px;    padding: 0px;   }
+
+TR 	{ font : 11px Verdana; color: #000; text-decoration: none }
+
+TD 	{ font : 11px Verdana; color: #000;  } 
+
+ul { line-height: 2em;  }
+
+#header   {   font : bold 12px Verdana; background-color:#fff;height:80px; } 
+.titleWelcome{float:left; margin:30px 0 0 0; }      
+
+#footer   {   font : 10px Verdana; color: #fff; background-image: url('../images/headerBG.gif'); height:35px; padding-left:10px; padding-right:10px; }
+
+#side     {   font : 11px Verdana; background-color:#f4f5fd; width:250px; vertical-align:top; text-align: left; padding:5px; }
+
+#mainpage {   font : 11px Verdana; background-color:#fff; vertical-align:top; text-align: left; margin-left:0px }
+
+#table_holder {   margin-left: 0px; text-align: left; align:left;  }
+
+B  { font : bold 10px Verdana;	color: #000; }
+
+SMALL  { font : 10px Verdana;	color: #333; }
+
+VAR { font : 10px Verdana; color: #ccc; text-decoration: none }
+
+A       { color: #0040FF; font: 11px Verdana ; text-decoration:none;  } 
+
+A:HOVER { color: #000080; font: 11px Verdana ;text-decoration:underline; }
+
+#footer A  { color: #99CCFF; font: 10px Verdana ; text-decoration:none;  } 
+
+#footer A:HOVER { color: #FF9900; font: 10px Verdana ;
+	text-decoration:underline;  }
+
+.hdrow { font-weight: bold; text-align: center;  }
+.ctr { text-align: center;  }
+.fr { float: right;  }
+
+.title_page	 { font : 10px Verdana; color: #000 }
+
+.footer		 { font : 9px Verdana; color: #999 }
+
+.mailing	 { font : 10px Verdana; color: #999 }
+
+.title01 { font : bold 10px Verdana; color: #069 }
+
+.title02 { font : bold 10px Verdana; color: #999 }
+
+.showing01 { font : 10px Verdana; color: #999 }
+
+.special { font : bold 10px Verdana; color: #069 }
+
+.briefdesc { font : 10px Verdana; color: #999 }
+
+.warning { font : 10px Verdana; color: #c00 }
+
+.warning02 { font : bold 11px Verdana; color: #c00 }
+
+.free { font : bold 10px Verdana; color: #c00 }
+
+.sorry_search { font : bold 12px Verdana; color: #c00 }
+
+.cattitle { font : bold 12px Verdana; color: #069 }
+
+.cat_sub { font : italic 10px Verdana; color: #999  }
+
+.time		 { font : 9px Verdana;	color: #999; text-decoration: none  } 
+
+.buttons { border: 1px solid #ccc;	font: bold 10px Verdana; color: #000;  text-decoration: none;	background-color: #efefef;	cursor: hand; }
+
+.form_text { border: 1px solid #ccc;	font: 10px Verdana;	
+	text-decoration: none;	background-color: #fff;	cursor: none;  }
+
+.form_news { border: 1px solid #ccc;	font: 8px Verdana;	
+	text-decoration: none;	background-color: #fff;	cursor: none;  }
+
+.quicknav { border: 1px solid #cc9;	font: 10px Verdana;	
+	text-decoration: none;	background-color: #efefef;	cursor: none;  }
+
+.input		 { border-style: none; font-family:Verdana,Arial,Helvetica,sans-serif; background-color: #F2F2F2; font-size:8pt  }
+
+.footer2 { font: 9px Verdana; color: #fff; text-decoration: none; }
+
+.buttons1 { border: 1px solid #ccc;	font: bold 10px Verdana; color: #fff;  text-decoration: none;	background-color: #999;	cursor: hand; }
+
+.text1 { BORDER-bottom: #c0c0c0 1px solid; background-color:#F3F0EE  }
+
+/*.smenu{ background-color:#369;
+color:#FFF;
+	 }
+.smenu tr{ background-color:#369;
+color:#FFF;
+	 }
+	.smenu tr a{
+color:#FFF;
+	 }*/
+	
+	.marg { margin-top:20px;  }
+	
+	.up { position: relative; top: -52px; left: 201px;  }
+
+	.upTT { position:relative; left: 201px;  }
+
+	.manage { left: 174px; position: relative;  }
+
+	.manageTop { left: 400px; position:relative; 	 }
+
+	.purchase { left: 271px; position:relative;
+		top: -90px;
+	 }
+
+	.overlay { position:absolute; margin-top: -40px;
+		left: -300px; display:none; z-index: 999;
+		background: #eee; padding: 5px; width: 300px;	
+		text-align: left !important;
+	 }
+
+	div#main { position: fixed; text-align: center;
+	    left: 0px;  width: 100%;
+	    /*clear:both;*/
+	 }
+
+	div#main .headrow td, div#main .headrow td a { font-weight: bold; 
+		font-size: 12px; text-decoration: none;	    
+	    background-color: #369; color: #fff; font-family: Arial;		
+	 }
+
+	div#left { float:left; width: 6%; overflow: hidden;
+	    background-color: #369; color: #fff; height:18px;
+		font-family: Arial; font-size: 12px;
+		font-weight: bold; padding: 5px 0 12px;		
+	 }
+
+	div#main2 { background: none repeat scroll 0 0 #fff;
+		color: #333; float: left; min-height: 15px;
+		left: 0; /*margin: 5px 0;*/	 width: 100%;
+		text-align: center; /*clear:both;*/
+		border-bottom: 1px solid #EDF5FF;		
+	 }
+
+	div#left2 { float:left; width:6%;
+		font-family:Arial; font-size:12px;	
+		padding:5px 0;
+	 }
+
+	div#main3 { text-align: center; left:0px;
+	    width: 100%; 	    /*clear:both;*/
+	 }
+
+	div#left3 {
+	    float:left;
+	    width:5%;
+	    background: #369;
+		font-family:Arial;
+		font-size:12px;
+		padding:10px 0;
+		height:16px;
+		color:#fff;
+		font-family:Arial;
+		font-size:12px;
+	 }
+div#left4 {
+	    float:left;
+	    width:6.5%;
+		font-family:Arial;
+		font-size:12px;
+		padding:5px 0;
+	 }
+div#left5 {
+	    float:left;
+	    width:2.5%;
+		font-family:Arial;
+		font-size:12px;
+		padding:5px 0;
+	 }
+div#left6 {
+	    float:left;
+	    width:7%;
+		font-family:Arial;
+		font-size:12px;
+		padding:5px 0;
+	 }	
+div#left7 {  float:left; width:6%; font-family:Arial;
+		font-size:12px; padding:5px 0;
+	 }
+div#left8 { float:left; width:6%; font-family:Arial;
+		font-size:12px; padding:5px 0;
+	 }
+div#left9 { float:left;  width:5%; font-family:Arial; font-size:12px;
+		padding:5px 0;
+	 }	
+div#left10 { float:left; width:6%; font-family:Arial; font-size:12px;
+		padding:5px 0;
+	 }		
+.clear {  clear: both; 	 }
+
+/** alerts anchor *****/
+a.dalerts { color: #c03;  }
+
+.ttip_overlay { position: absolute; background: #eee; padding: 5px;
+	display: none; z-index: 9999; border: 1px solid #999;
+ }
+
+ .sred { color: #f00; font-size: 16px; font-weight: bold; }
+
+#container { position: absolute; }
+
+a.editalert, a.remalert { cursor: pointer; }
+
+.graybackground {
+    position: fixed;
+    float: none;
+    width: 100%;
+    height: 100%;
+    background: #75757566;
+    z-index: 999999999;
+    top: 0px;
+    padding-top: 10%;
+    padding-left: 35%;
+}
+
+.cus_due input[type="text"] {
+    width: 100%;
+    margin-bottom: 10px;
+}
+.cus_due {
+    background: #fff;
+    width: 300px;
+    padding: 20px;
+}
+.allocation {
+    padding: 20px;
+    display: none;
+    background-color: white;
+    width: 250px;
+    border: 1px solid #000;
+    position: absolute;
+    top: 20%;
+    left: 40%;
+}
+
+.allocation1 {
+    padding: 20px;
+    display: block;
+    background-color: white;
+    width: 250px;
+    border: 1px solid #000;
+    position: absolute;
+    top: 20%;
+    left: 40%;
+    z-index: 9;
+}
+#allocation input, #allocation label, #allocation select {
+    float: left;
+    clear: both;
+}
+
+#allocation1 input, #allocation1 label, #allocation1 select {
+    float: left;
+    clear: both;
+}
+
+#popupBack {
+    background: #8080804d;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+}
+.al_tb td {
+   border: 1px solid black;
+   padding:5px;
+}
+.al_tb {
+    border-collapse: collapse;
+}
+.edit_al{
+	float:left;
+	cursor:pointer;
+	color:#0040FF;
+}
